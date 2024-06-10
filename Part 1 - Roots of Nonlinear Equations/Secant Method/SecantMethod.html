@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secant Method</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        header {
+        background-color: #A66AFF ;
+        padding: 10px;
+        text-align: center;
+        font-size: 35px;
+        color: white;
+        
+        }
+
+      .title{
+        font-family: poppins ;
+        background-color: #A66AFF ;
+        text-align: center;
+        color: white;
+        
+      }
+      .content{
+        font-family: Poppins;
+        font-size: 16px;
+      }
+
+      .content1{
+        font-family: Poppins;
+        font-size: 16px;
+        line-height: 30px;
+      }
+      h3{
+        font-family: poppins;
+        font-size: 18px;
+      }
+      .subtitle{
+        font-family: poppins;
+        font-size: 22;
+      }
+
+
+      .my-5{
+        padding-left: 20px;
+
+      }
+
+
+
+    footer{
+      background-color: #A66AFF;
+      padding: 10px;
+      text-align: center;
+      font-size: 16px;
+      font-family: poppins;
+      color: white;
+      margin-top: 50px;
+      
+    }
+    .name{
+      font-size: 20px;
+    }
+
+    .column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+      
+    </style>
+  </head>
+  <body>
+    <!-- header  -->
+          <div>
+            <header>
+              <h2>Secant Method</h2>
+            </header>
+          </div>
+    <!-- end  header  -->
+
+ <!-- content  --> 
+    <div class="my-5">
+      <h2 class="subtitle">What is Secant Method?</h2>
+      <p class="content">A secant method of numerical analysis uses a series of roots of secant lines to find the root of a function f. We will learn more about the second method in this article and examine a solved example with detailed explanations.</p>
+      
+      <h2 class="subtitle">Secant Method Steps</h2>
+      <h3>Step 1: Initialization</h3>
+      <p class="content">x<sub>0</sub> and x<sub>1</sub> of a are taken as initial guesses.</p>
+      
+      <h3>Step 2: Iteration</h3>
+      <p class="content">In the case of i = 1, 2, 3, …... </p>
+      <img class="my-8 mx-auto" src="formula.png" alt="secant formula" />
+     
+      <h2 class="subtitle">Secant Method Solved Example</h2>
+      <h3><u>Example:</u></h3>
+  
+      <p class="content">Compute two iterations for the function f(x) = 3x-cosx-1 using the secant method, in which the real roots of the equation f(x) lies in the interval (0, 1).</p>
+      <h3>Solution:</h3>
+  
+      <article class="content1">
+      Using the given data, we have,<br>
+      x<sub>0</sub> = 0 , x<sub>1</sub> = 1 and <br>
+      f(x<sub>0</sub>) = f(0) = 3x-cosx-1 = -2 ,<br>
+      f(x<sub>1</sub>) = f(1) = 3x-cosx-1 = 1.46 <br>
+    
+      Using the secant method formula, we can write
+      <br>
+      <h4>The first approximation is:</h4>
+  
+      x<sub>1+1</sub> = x<sub>1</sub> - [(x<sub>1</sub> - x<sub>1-1</sub>) / f(x<sub>1</sub>) - f(x<sub>1-1</sub>)] * f(x<sub>1</sub>)
+      <br>
+      x<sub>2</sub> = x<sub>1</sub> - [(x<sub>1</sub> - x<sub>0</sub> )/ f(x<sub>1</sub>) - f(x<sub>0</sub>)] * f(x<sub>1</sub>)
+      <br>
+      x<sub>2</sub> = 1 -[(1-0) /1.46-(-2)]*(1.46) 
+      <br>
+      x<sub>2</sub> = 0.58
+      <br>
+      <h4>The second approximation is:</h4>
+      x<sub>3</sub> = x<sub>2</sub> - [(x<sub>2</sub> - x<sub>1</sub> )/ f(x<sub>2</sub>) - f(x<sub>1</sub>)] * f(x<sub>2</sub>) <br>
+      x<sub>3</sub> = 0.58 -[(0.58-1) /(-0.10)-1.46]*(-0.10)
+      <br>
+      x<sub>3</sub> = 0.64
+      <br>
+      <h4>The third approximation is:</h4>
+      x<sub>4</sub> = x<sub>3</sub> - [(x<sub>3</sub> - x<sub>2</sub> )/ f(x<sub>3</sub>) - f(x<sub>2</sub>)] * f(x<sub>3</sub>) <br>
+      x<sub>4</sub> = 0.64 -[(0.64-0.58) /0.12-(-0.10)]*(0.12)
+      <br>
+      x<sub>4</sub> = 0.57
+      <br>
+      <h4>The fourth approximation is:</h4>
+      x<sub>5</sub> = x<sub>4</sub> - [(x<sub>4</sub> - x<sub>3</sub> )/ f(x<sub>4</sub>) - f(x<sub>3</sub>)] * f(x<sub>4</sub>) <br>
+      x<sub>5</sub> = 0.57 -[(0.57-0.64) /(-0.13)-0.12]*(-0.13)
+      <br>
+      x<sub>5</sub> = 0.61
+      <br>
+      <h4>The fifth approximation is:</h4>
+      x<sub>6</sub> = x<sub>5</sub> - [(x<sub>5</sub> - x<sub>4</sub> )/ f(x<sub>5</sub>) - f(x<sub>4</sub>)] * f(x<sub>5</sub>) <br>
+      x<sub>6</sub> = 0.61 -[(0.61-0.57) /0.01-(-0.13)]*(0.01)
+      <br>
+      x<sub>6</sub> = 0.61
+      <br>
+  
+      Since, x<sub>5</sub> and x<sub>6</sub> matching up to two decimal places, the required root is 0.61
+
+    </article>
+    </div>
+
+
+<!-- end content  -->
+
+<!-- footer  -->
+<footer>
+ <div>
+  
+    <h3>Team Member:</h3>
+    <p>
+      Mst. Esrat Jahan,  
+       ID : 2022100010055<br>
+      Md. Shohag Hossain,
+       ID : 2022100010068<br>
+      Md. Foridul Haque,
+       ID : 2022100010070<br>
+    </p>
+    
+ </div>
+
+</footer>
+<!-- end footer  -->
+
+  </body>
+</html>
