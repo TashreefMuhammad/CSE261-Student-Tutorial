@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,42 +12,60 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
         }
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             color: #333;
         }
+
         pre {
             background-color: #f4f4f4;
             padding: 10px;
             border-radius: 5px;
             overflow-x: auto;
         }
+
         code {
             font-family: "Courier New", Courier, monospace;
         }
-        .advantages, .disadvantages {
+
+        .advantages,
+        .disadvantages {
             margin: 10px 0;
         }
-        .advantages ul, .disadvantages ul {
+
+        .advantages ul,
+        .disadvantages ul {
             list-style-type: disc;
             padding-left: 20px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Introduction to Newton-Raphson Method</h1>
-        <p>The Newton-Raphson method, a powerful tool for finding roots of nonlinear equations, is one of the most widely used techniques in numerical analysis. Named after Sir Isaac Newton and Joseph Raphson, this iterative method provides a means to approximate the roots of a real-valued function. It is particularly appreciated for its efficiency and rapid convergence when the initial guess is sufficiently close to the actual root.</p>
-        
+        <p>The Newton-Raphson method, a powerful tool for finding roots of nonlinear equations, is one of the most
+            widely used techniques in numerical analysis. Named after Sir Isaac Newton and Joseph Raphson, this
+            iterative method provides a means to approximate the roots of a real-valued function. It is particularly
+            appreciated for its efficiency and rapid convergence when the initial guess is sufficiently close to the
+            actual root.</p>
+
         <h2>Concept and Mathematical Foundation</h2>
-        <p>The Newton-Raphson method leverages the idea of linear approximation. Given a function \( f(x) \) whose root we seek, the method uses the tangent line at a current approximation to find a better approximation. Mathematically, starting with an initial guess \( x_0 \), the method iterates using the formula:</p>
+        <p>The Newton-Raphson method leverages the idea of linear approximation. Given a function \( f(x) \) whose root
+            we seek, the method uses the tangent line at a current approximation to find a better approximation.
+            Mathematically, starting with an initial guess \( x_0 \), the method iterates using the formula:</p>
         <pre><code>x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}</code></pre>
-        <p>Here, \( f'(x) \) denotes the derivative of \( f(x) \). The formula is derived from the Taylor series expansion, assuming the function can be approximated linearly near the root.</p>
-        
+        <p>Here, \( f'(x) \) denotes the derivative of \( f(x) \). The formula is derived from the Taylor series
+            expansion, assuming the function can be approximated linearly near the root.</p>
+
         <h2>Algorithm</h2>
         <ol>
             <li><strong>Initial Guess</strong>: Start with an initial approximation \( x_0 \).</li>
@@ -54,12 +73,13 @@
                 <ul>
                     <li>Compute the function value \( f(x_n) \) and its derivative \( f'(x_n) \).</li>
                     <li>Update the approximation using the formula \( x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \).</li>
-                    <li>Check for convergence: if \( |x_{n+1} - x_n| < \epsilon \) (a predefined tolerance level), the root is found.</li>
+                    <li>Check for convergence: if \( |x_{n+1} - x_n| < \epsilon \) (a predefined tolerance level), the
+                            root is found.</li>
                     <li>Repeat the process until convergence.</li>
                 </ul>
             </li>
         </ol>
-        
+
         <h2>Example</h2>
         <p>Consider the polynomial \( f(x) = x^2 - 4x + 3 \). To find its roots using the Newton-Raphson method:</p>
         <ol>
@@ -68,7 +88,8 @@
                 <ul>
                     <li>Compute \( f(2) = 2^2 - 4(2) + 3 = -1 \).</li>
                     <li>Compute the derivative \( f'(2) = 2(2) - 4 = 0 \).</li>
-                    <li>Update \( x_1 = 2 - \frac{-1}{0} \). Since \( f'(2) \) is zero, we need to choose another guess or adjust the method.</li>
+                    <li>Update \( x_1 = 2 - \frac{-1}{0} \). Since \( f'(2) \) is zero, we need to choose another guess
+                        or adjust the method.</li>
                     <li>Suppose the next guess is \( x_0 = 1.5 \).</li>
                     <li>Compute \( f(1.5) = 1.5^2 - 4(1.5) + 3 = -0.75 \).</li>
                     <li>Compute the derivative \( f'(1.5) = 2(1.5) - 4 = -1 \).</li>
@@ -77,26 +98,42 @@
             </li>
         </ol>
         <p>Repeating these steps, the values converge to one of the roots.</p>
-        
+
         <h2>Advantages and Disadvantages</h2>
         <div class="advantages">
             <h3>Advantages</h3>
             <ul>
-                <li><strong>Fast Convergence</strong>: The method converges quadratically near the root, making it faster than many other methods.</li>
+                <li><strong>Fast Convergence</strong>: The method converges quadratically near the root, making it
+                    faster than many other methods.</li>
                 <li><strong>Simplicity</strong>: The algorithm is straightforward and easy to implement.</li>
             </ul>
         </div>
         <div class="disadvantages">
             <h3>Disadvantages</h3>
             <ul>
-                <li><strong>Requirement of Derivative</strong>: The method requires the function's derivative, which may not always be easy to compute.</li>
-                <li><strong>Initial Guess Sensitivity</strong>: The convergence depends heavily on the initial guess. Poor choices can lead to divergence or slow convergence.</li>
-                <li><strong>Not Always Applicable</strong>: For functions where the derivative is zero or changes rapidly near the root, the method may fail or require modification.</li>
+                <li><strong>Requirement of Derivative</strong>: The method requires the function's derivative, which may
+                    not always be easy to compute.</li>
+                <li><strong>Initial Guess Sensitivity</strong>: The convergence depends heavily on the initial guess.
+                    Poor choices can lead to divergence or slow convergence.</li>
+                <li><strong>Not Always Applicable</strong>: For functions where the derivative is zero or changes
+                    rapidly near the root, the method may fail or require modification.</li>
             </ul>
         </div>
-        
+
         <h2>Conclusion</h2>
-        <p>The Newton-Raphson method is an essential technique in numerical analysis for solving nonlinear equations. Its efficiency and simplicity make it a preferred choice, provided the initial guess is close to the actual root and the function is well-behaved. Understanding its limitations is crucial for its effective application. Despite its drawbacks, the Newton-Raphson method remains a cornerstone of numerical root-finding methods, illustrating the profound impact of calculus in computational mathematics.</p>
+        <p>The Newton-Raphson method is an essential technique in numerical analysis for solving nonlinear equations.
+            Its efficiency and simplicity make it a preferred choice, provided the initial guess is close to the actual
+            root and the function is well-behaved. Understanding its limitations is crucial for its effective
+            application. Despite its drawbacks, the Newton-Raphson method remains a cornerstone of numerical
+            root-finding methods, illustrating the profound impact of calculus in computational mathematics.</p>
+    </div>
+    <!-- group --> 
+    <h3 class="text-center text-2xl my-4 font-bold">Team <span class="text-red-300"> Member</span></h3>
+    <div class="grid grid-cols-3  ">
+        <div class="text-center font-semibold text-blue-600"><img class="w-1/3 mx-auto rounded-full " src="./Photos/Images/P1G6T1.png" alt=""><p>Md. Mahabub Alam</p>ID: 2018000011001</div>
+        <div class="text-center font-semibold text-green-500"><img class="w-1/3 mx-auto rounded-full " src="./Photos/Images/P1G6T2.png" alt=""><p>Rezwana Ferdouse Riya<br> ID: 2021200010015</p></div>
+        <div class="text-center font-semibold text-blue-600"> <img class="w-1/3 mx-auto rounded-full " src="./Photos/Images/P1G6T3.png" alt=""><p>Md. Rahat Hossain</p>ID: 2023000010078</div>
     </div>
 </body>
+
 </html>
