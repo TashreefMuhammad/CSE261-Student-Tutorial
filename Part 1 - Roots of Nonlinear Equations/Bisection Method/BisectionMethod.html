@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE261 - Bisection Method</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h3>CSE261 - Numerical Methods</h3>
+        <p>Welcome to the CSE261 - Numerical Methods course website. This website is a collection of resources for the course,
+            including lecture notes, assignments, and other materials.</p>
+
+        <!-- Nav Bar for all section -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Part 1 - Roots of Nonlinear Equations/Bisection Method/BisectionMethod.html">Bisection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Part 1 - Roots of Nonlinear Equations/False-Position Method/FalsePositionMethod.html">False-Position</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Part 1 - Roots of Nonlinear Equations/Fixed Point Iteration Method/FixedPointIterationMethod.html">Fixed Point
+                                Iteration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Part 1 - Roots of Nonlinear Equations/Modified Bisection Method/ModifiedBisectionMethod.html">Modified
+                               Bisection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Part 1 - Roots of Nonlinear Equations/Newton Method/NewtonMethod.html">Newton</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Part 1 - Roots of Nonlinear Equations/Newton-Raphson Method/NewtonRaphsonMethod.html">Newton-Raphson</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../Part 1 - Roots of Nonlinear Equations/Secant Method/SecantMethod.html">Secant</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h2 class="mt-3 text-center text-primary">Bisection Method</h2>
+
+        <p class="fs-5">Definition:
+            <span class="bg-primary text-white fs-6 p-1">The bisection method is used to find the roots of a polynomial equation. It separates the interval and subdivides the
+            interval in which the root of the equation lies. The principle behind this method is the intermediate theorem for
+            continuous functions.</span>
+            It works by narrowing the gap between the positive and negative intervals until it closes in on the correct answer. This
+            method narrows the gap by taking the average of the positive and negative intervals. It is a simple method and it is
+            relatively slow. The bisection method is also known as interval halving method, root-finding method, binary search
+            method or dichotomy method.
+        </p>
+
+        <p class="fs-5">
+            Let us consider a continuous function “f” which is defined on the closed interval [a, b], is given with f(a) and f(b) of
+            different signs. Then by intermediate theorem, there exists a point x belong to (a, b) for which f(x) = 0.
+        </p>
+
+        <h5>Algorithm</h5>
+        <p class="fs-5">The bisection method is a simple and robust method for finding the roots of a polynomial equation. The algorithm is as follows:</p>
+        <ol class="fs-5">
+            <li>Choose two points a and b such that f(a) and f(b) have opposite signs.</li>
+            <li>Calculate the midpoint c = (a + b) / 2.</li>
+            <li>Calculate f(c).</li>
+            <li>If f(c) = 0, then c is the root of the equation.</li>
+            <li>Otherwise, if f(a) and f(c) have opposite signs, then the root lies between a and c. Set b = c.</li>
+            <li>Otherwise, if f(b) and f(c) have opposite signs, then the root lies between b and c. Set a = c.</li>
+            <li>Repeat steps 2-6 until the root is found within the desired tolerance.</li>
+        </ol>
+    </div>
+</body>
+</html>
