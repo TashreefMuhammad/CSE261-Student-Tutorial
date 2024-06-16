@@ -19,12 +19,6 @@
             padding: 20px;
         }
 
-        h1,
-        h2,
-        h3 {
-            color: #333;
-        }
-
         pre {
             background-color: #f4f4f4;
             padding: 10px;
@@ -43,11 +37,13 @@
 
         .advantages ul,
         .disadvantages ul {
+
             list-style-type: disc;
             padding-left: 20px;
         }
     </style>
 </head>
+
 
 <body>
     <div class="container">
@@ -66,6 +62,7 @@
         <p>Here, \( f'(x) \) denotes the derivative of \( f(x) \). The formula is derived from the Taylor series
             expansion, assuming the function can be approximated linearly near the root.</p>
 
+
         <h2>Algorithm</h2>
         <ol>
             <li><strong>Initial Guess</strong>: Start with an initial approximation \( x_0 \).</li>
@@ -73,12 +70,16 @@
                 <ul>
                     <li>Compute the function value \( f(x_n) \) and its derivative \( f'(x_n) \).</li>
                     <li>Update the approximation using the formula \( x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \).</li>
+
                     <li>Check for convergence: if \( |x_{n+1} - x_n| < \epsilon \) (a predefined tolerance level), the
                             root is found.</li>
+
                     <li>Repeat the process until convergence.</li>
                 </ul>
             </li>
         </ol>
+
+
 
         <h2>Example</h2>
         <p>Consider the polynomial \( f(x) = x^2 - 4x + 3 \). To find its roots using the Newton-Raphson method:</p>
@@ -103,14 +104,17 @@
         <div class="advantages">
             <h3>Advantages</h3>
             <ul>
+
                 <li><strong>Fast Convergence</strong>: The method converges quadratically near the root, making it
                     faster than many other methods.</li>
+
                 <li><strong>Simplicity</strong>: The algorithm is straightforward and easy to implement.</li>
             </ul>
         </div>
         <div class="disadvantages">
             <h3>Disadvantages</h3>
             <ul>
+
                 <li><strong>Requirement of Derivative</strong>: The method requires the function's derivative, which may
                     not always be easy to compute.</li>
                 <li><strong>Initial Guess Sensitivity</strong>: The convergence depends heavily on the initial guess.
@@ -137,3 +141,4 @@
 </body>
 
 </html>
+
