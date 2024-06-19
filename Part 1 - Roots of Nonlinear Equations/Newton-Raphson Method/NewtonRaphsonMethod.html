@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction to Newton-Raphson Method</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +18,24 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
+        }
+        .cartoon {
+
+        }
+
+        h1 {
+            color: #1a73e8;
+            /* Blue */
+        }
+
+        h2 {
+            color: #e91e63;
+            /* Pink */
+        }
+
+        h3 {
+            color: #4caf50;
+            /* Green */
         }
 
         pre {
@@ -37,84 +56,132 @@
 
         .advantages ul,
         .disadvantages ul {
-
             list-style-type: disc;
             padding-left: 20px;
+        }
+
+        .team-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .team-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ff9800;
+            /* Orange */
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .team-member img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .team-member p {
+            margin: 10px 0 0 0;
+            font-weight: bold;
+        }
+
+        .team-member .id {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        #plot {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+        .newton{
+            text-align: center;
+            margin: 10px;
+        }
+        .newton img {
+            width: 100px;
+            padding-left: 10%;
         }
     </style>
 </head>
 
-
 <body>
+    <div class="newton">
+        <img class="id" src="https://cdn.vectorstock.com/i/1000v/35/46/isaac-newton-sitting-under-apple-tree-vector-41743546.avif" alt="Cartoon Isaac Newton">
+        <img class="id" src="https://easydrawingguides.com/wp-content/uploads/2021/04/how-to-draw-isaac-newton-featured-image-1200.png" alt="Cartoon Isaac Newton">
+        <img class="id" src="https://cdn.vectorstock.com/i/500p/11/29/isaac-newton-having-an-idea-cartoon-clip-art-vector-51111129.jpg" alt="Cartoon Isaac Newton">
+        </div>
     <div class="container">
-        <h1>Introduction to Newton-Raphson Method</h1>
+        <h1 text-align="center">Introduction to Newton-Raphson Method</h1>
         <p>The Newton-Raphson method, a powerful tool for finding roots of nonlinear equations, is one of the most
             widely used techniques in numerical analysis. Named after Sir Isaac Newton and Joseph Raphson, this
             iterative method provides a means to approximate the roots of a real-valued function. It is particularly
             appreciated for its efficiency and rapid convergence when the initial guess is sufficiently close to the
             actual root.</p>
-
         <h2>Concept and Mathematical Foundation</h2>
-        <p>The Newton-Raphson method leverages the idea of linear approximation. Given a function \( f(x) \) whose root
-            we seek, the method uses the tangent line at a current approximation to find a better approximation.
-            Mathematically, starting with an initial guess \( x_0 \), the method iterates using the formula:</p>
-        <pre><code>x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}</code></pre>
-        <p>Here, \( f'(x) \) denotes the derivative of \( f(x) \). The formula is derived from the Taylor series
+        <p>The Newton-Raphson method leverages the idea of linear approximation. Given a function f(x) whose root we
+            seek, the method uses the tangent line at a current approximation to find a better approximation.
+            Mathematically, starting with an initial guess ( x_0 ), the method iterates using the formula:</p>
+        <pre><code>x_{n+1} = x_n - {f(x_n)}/{f'(x_n)}</code></pre>
+        <p>Here, ( f'(x) ) denotes the derivative of ( f(x) ). The formula is derived from the Taylor series
             expansion, assuming the function can be approximated linearly near the root.</p>
-
 
         <h2>Algorithm</h2>
         <ol>
-            <li><strong>Initial Guess</strong>: Start with an initial approximation \( x_0 \).</li>
+            <li><strong>Initial Guess</strong>: Start with an initial approximation ( x_0 ).</li>
             <li><strong>Iteration</strong>:
                 <ul>
-                    <li>Compute the function value \( f(x_n) \) and its derivative \( f'(x_n) \).</li>
-                    <li>Update the approximation using the formula \( x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \).</li>
-
-                    <li>Check for convergence: if \( |x_{n+1} - x_n| < \epsilon \) (a predefined tolerance level), the
-                            root is found.</li>
-
+                    <li>Compute the function value ( f(x_n) ) and its derivative ( f'(x_n) ).</li>
+                    <li>Update the approximation using the formula ( x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} ).</li>
+                    <li>Check for convergence: if ( |x_{n+1} - x_n| < \epsilon ) (a predefined tolerance level), the
+                        root is found.</li>
                     <li>Repeat the process until convergence.</li>
                 </ul>
             </li>
         </ol>
 
-
-
         <h2>Example</h2>
-        <p>Consider the polynomial \( f(x) = x^2 - 4x + 3 \). To find its roots using the Newton-Raphson method:</p>
+        <p>Consider the polynomial (f(x) = x^2 - 4x + 3). To find its roots using the Newton-Raphson method:</p>
         <ol>
-            <li><strong>Initial Guess</strong>: Suppose \( x_0 = 2 \).</li>
+            <li><strong>Initial Guess</strong>: Suppose (x_0 = 2).</li>
             <li><strong>Iteration</strong>:
                 <ul>
-                    <li>Compute \( f(2) = 2^2 - 4(2) + 3 = -1 \).</li>
-                    <li>Compute the derivative \( f'(2) = 2(2) - 4 = 0 \).</li>
-                    <li>Update \( x_1 = 2 - \frac{-1}{0} \). Since \( f'(2) \) is zero, we need to choose another guess
+                    <li>Compute (f(2) = 2^2 - 4(2) + 3 = -1).</li>
+                    <li>Compute the derivative (f'(2) = 2(2) - 4 = 0).</li>
+                    <li>Update (x_1 = 2 - frac{-1}{0}). Since (f'(2)) is zero, we need to choose another guess
                         or adjust the method.</li>
-                    <li>Suppose the next guess is \( x_0 = 1.5 \).</li>
-                    <li>Compute \( f(1.5) = 1.5^2 - 4(1.5) + 3 = -0.75 \).</li>
-                    <li>Compute the derivative \( f'(1.5) = 2(1.5) - 4 = -1 \).</li>
-                    <li>Update \( x_1 = 1.5 - \frac{-0.75}{-1} = 0.75 \).</li>
+                    <li>Suppose the next guess is ( x_0 = 1.5 ).</li>
+                    <li>Compute ( f(1.5) = 1.5^2 - 4(1.5) + 3 = -0.75 ).</li>
+                    <li>Compute the derivative ( f'(1.5) = 2(1.5) - 4 = -1 ).</li>
+                    <li>Update ( x_1 = 1.5 - \frac{-0.75}{-1} = 0.75 ).</li>
                 </ul>
             </li>
         </ol>
         <p>Repeating these steps, the values converge to one of the roots.</p>
 
+        <div id="plot"></div>
+
         <h2>Advantages and Disadvantages</h2>
         <div class="advantages">
             <h3>Advantages</h3>
             <ul>
-
                 <li><strong>Fast Convergence</strong>: The method converges quadratically near the root, making it
                     faster than many other methods.</li>
-
                 <li><strong>Simplicity</strong>: The algorithm is straightforward and easy to implement.</li>
             </ul>
         </div>
         <div class="disadvantages">
             <h3>Disadvantages</h3>
             <ul>
-
                 <li><strong>Requirement of Derivative</strong>: The method requires the function's derivative, which may
                     not always be easy to compute.</li>
                 <li><strong>Initial Guess Sensitivity</strong>: The convergence depends heavily on the initial guess.
@@ -131,14 +198,98 @@
             application. Despite its drawbacks, the Newton-Raphson method remains a cornerstone of numerical
             root-finding methods, illustrating the profound impact of calculus in computational mathematics.</p>
     </div>
-    <!-- group --> 
-    <h3 class="text-center text-2xl my-4 font-bold">Team <span class="text-yellow-300"> Member</span></h3>
-    <div class="grid grid-cols-3  ">
-        <div class="text-center font-semibold text-blue-600"><img class="w-1/3 mx-auto rounded-full " src="https://raw.githubusercontent.com/Rezwana19/CSE261-Student-Tutorial/main/Part%201%20-%20Roots%20of%20Nonlinear%20Equations/Newton-Raphson%20Method/Photos/Images/P1G6T1.png" alt=""><p>Md. Mahabub Alam</p>ID: 2018000011001</div>
-        <div class="text-center font-semibold text-green-500"><img class="w-1/3 mx-auto rounded-full " src="https://raw.githubusercontent.com/Rezwana19/CSE261-Student-Tutorial/main/Part%201%20-%20Roots%20of%20Nonlinear%20Equations/Newton-Raphson%20Method/Photos/Images/P1G6T2.png" alt=""><p>Rezwana Ferdouse Riya<br> ID: 2021200010015</p></div>
-        <div class="text-center font-semibold text-blue-600"> <img class="w-1/3 mx-auto rounded-full " src="https://raw.githubusercontent.com/Rezwana19/CSE261-Student-Tutorial/main/Part%201%20-%20Roots%20of%20Nonlinear%20Equations/Newton-Raphson%20Method/Photos/Images/P1G6T3.png" alt=""><p>Md. Rahat Hossain</p>ID: 2023000010078</div>
+
+    <div class="team-section">
+        <h3>Team Members</h3>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://raw.githubusercontent.com/Rezwana19/CSE261-Student-Tutorial/main/Part%201%20-%20Roots%20of%20Nonlinear%20Equations/Newton-Raphson%20Method/Photos/Images/P1G6T1.png"
+                    alt="Md. Mahabub Alam">
+                <p>Md. Mahabub Alam</p>
+                <p class="id">ID: 2018000011001</p>
+            </div>
+            <div class="team-member">
+                <img src="https://raw.githubusercontent.com/Rezwana19/CSE261-Student-Tutorial/main/Part%201%20-%20Roots%20of%20Nonlinear%20Equations/Newton-Raphson%20Method/Photos/Images/P1G6T2.png"
+                    alt="Rezwana Ferdouse Riya">
+                <p>Rezwana Ferdouse Riya</p>
+                <p class="id">ID: 2021200010015</p>
+            </div>
+            <div class="team-member">
+                <img src="https://raw.githubusercontent.com/Rezwana19/CSE261-Student-Tutorial/main/Part%201%20-%20Roots%20of%20Nonlinear%20Equations/Newton-Raphson%20Method/Photos/Images/P1G6T3.png"
+                    alt="Md. Rahat Hossain">
+                <p>Md. Rahat Hossain</p>
+                <p class="id">ID: 2023000010078</p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Function f(x) and its derivative f'(x)
+        function f(x) {
+            return x * x - 4 * x + 3;
+        }
+
+        function f_prime(x) {
+            return 2 * x - 4;
+        }
+
+        // Newton-Raphson Method implementation
+        function newtonRaphson(x0, iterations) {
+            let results = [];
+            let x = x0;
+            for (let i = 0; i < iterations; i++) {
+                let fx = f(x);
+                let fpx = f_prime(x);
+                if (fpx === 0) {
+                    break;
+                }
+                let x_new = x - fx / fpx;
+                results.push({ iteration: i + 1, x: x_new });
+                x = x_new;
+            }
+            return results;
+        }
+
+        // Initial guess and number of iterations
+        let initialGuess = 1.5;
+        let numIterations = 10;
+        let results = newtonRaphson(initialGuess, numIterations);
+
+        // Plotting the function and iterations
+        let x_values = [];
+        let y_values = [];
+        for (let x = 0; x <= 4; x += 0.1) {
+            x_values.push(x);
+            y_values.push(f(x));
+        }
+
+        let trace1 = {
+            x: x_values,
+            y: y_values,
+            type: 'scatter',
+            name: 'f(x) = x^2 - 4x + 3'
+        };
+
+        let trace2 = {
+            x: results.map(result => result.x),
+            y: results.map(result => f(result.x)),
+            mode: 'markers',
+            type: 'scatter',
+            name: 'Iterations',
+            marker: { size: 12, color: 'red' }
+        };
+
+        let data = [trace1, trace2];
+
+        let layout = {
+            title: 'Newton-Raphson Method',
+            xaxis: { title: 'x' },
+            yaxis: { title: 'f(x)' }
+        };
+
+        Plotly.newPlot('plot', data, layout);
+    </script>
+
 </body>
 
 </html>
-
