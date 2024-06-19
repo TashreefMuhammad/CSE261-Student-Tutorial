@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modified Bisection Method</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden-content {
+            display: none;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <!-- Container -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center">
+            <h1 class="text-4xl font-bold text-purple-700">Modified Bisection Method</h1>
+            <p class="mt-2 text-lg text-gray-600">A Numerical Method for Finding Roots of Continuous Functions</p>
+        </div>
+
+        <!-- Image Container -->
+        <div class="my-10">
+            <img class="mx-auto my-6 rounded-lg shadow-lg" src="./image/Modified Bisection Method GRAPH.png" alt="Modified Bisection Method Graph">
+        </div>
+
+        <!-- Formula Section -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4">The bisection method is a well-known numerical method for finding roots of continuous functions. While the classic bisection method halves the interval [a, b] containing the root at each step, modifications can involve adjusting the step size Δx to improve efficiency or accuracy. A modified version of the bisection method using a step size Δx involves evaluating the function at regular intervals rather than strictly halving the interval. This modification can be particularly useful in optimization problems or scenarios where the function's behavior is more complex.</h3>
+            <p class="mb-2"><strong>Efficiency:</strong> A large Δx may reduce the number of iterations but at the cost of accuracy. A small Δx increases accuracy but may require many iterations.</p>
+            <p class="mb-4"><strong>Accuracy:</strong> A balance is needed to ensure the method is both efficient and accurate. Choosing an appropriate Δx is crucial for the success of the bisection method.</p>
+
+            <h3 class="font-semibold text-xl"><span class="font-bold text-red-500">Mathematical Example:</span></h3>
+            <p class="mt-2">You are given the equation: <strong>(x - 3)(x + 4)(x - 1) = 0</strong></p>
+            <p class="mt-2">Find all possible roots of the equation using modified bisection method within the range -x2 and +x2 when Er = 0.001 and Δx = 0.5</p>
+            
+            <div class="flex-center mt-4">
+                <button id="toggleButton" class="px-4 py-2 bg-purple-600 text-white font-bold rounded hover:bg-purple-700 transition duration-300">Show Solution</button>
+            </div>
+
+            <!-- Hidden Content -->
+            <div id="hiddenContent" class="hidden-content mt-6">
+                <h3 class="font-semibold text-xl">Solution:</h3>
+                <img class="mx-auto my-4 rounded-lg shadow-lg" src="./image/equation1.png" alt="Equation 1">
+                <img class="mx-auto my-4 rounded-lg shadow-lg" src="./image/equation2.png" alt="Equation 2">
+                <h3 class="font-semibold text-lg">So, we can say, no roots between -5.009 and -4.509 as multiplication is between -48.559216 and -21.055844</h3>
+                <img class="mx-auto my-4 rounded-lg shadow-lg" src="./image/equation3.png" alt="Equation 3">
+                <img class="mx-auto my-4 rounded-lg shadow-lg" src="./image/equation4.png" alt="Equation 4">
+            </div>
+        </div>
+
+        <!-- Group Members -->
+        <div class="mt-10">
+            <h3 class="text-center text-2xl font-bold">Team Members</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                <div class="text-center font-semibold text-purple-600 bg-white p-4 rounded-lg shadow-lg">
+                    <p>Maliha Fairuz Adry</p>
+                    <p>ID: 2020200011001</p>
+                </div>
+                <div class="text-center font-semibold text-purple-600 bg-white p-4 rounded-lg shadow-lg">
+                    <p>Effatuj Zohora</p>
+                    <p>ID: 2022100011006</p>
+                </div>
+                <div class="text-center font-semibold text-purple-600 bg-white p-4 rounded-lg shadow-lg">
+                    <p>Mithu Kumar Das</p>
+                    <p>ID: 2023000010084</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function () {
+            var hiddenContent = document.getElementById('hiddenContent');
+            if (hiddenContent.style.display === 'none' || hiddenContent.style.display === '') {
+                hiddenContent.style.display = 'block';
+                this.textContent = 'Hide Solution';
+            } else {
+                hiddenContent.style.display = 'none';
+                this.textContent = 'Show Solution';
+            }
+        });
+    </script>
+</body>
+
+</html>
