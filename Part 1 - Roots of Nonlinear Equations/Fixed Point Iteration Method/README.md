@@ -42,3 +42,12 @@ Use the iterative formula to find successive approximations:
 Continue the iteration until the difference |𝑥ₙ₊₁ − 𝑥ₙ| is smaller than a pre-specified tolerance 𝜖 (e.g., 𝜖 = 1×10⁻⁶), or until the maximum number of iterations is reached.
 
 ---
+
+1.⁠ ⁠Name : Mamun Miah
+ID : 2020000010046
+
+3.⁠ ⁠Name : Rabby Mia
+ID : 2020000010060
+
+2.⁠ ⁠Name: Halal Uddin
+ID: 2021200010038
