@@ -1,10 +1,3 @@
-# fixed-point-iteration-method
-fixed-point-iteration-method
-
-Sure! Here is the text formatted as you requested:
-
----
-
 # Solving an Equation Using the Fixed-Point Iteration Method
 
 ## Objective
@@ -46,8 +39,8 @@ Continue the iteration until the difference |𝑥ₙ₊₁ − 𝑥ₙ| is small
 1.⁠ ⁠Name : Mamun Miah
 ID : 2020000010046
 
-3.⁠ ⁠Name : Rabby Mia
+2.⁠ ⁠Name : Rabby Mia
 ID : 2020000010060
 
-2.⁠ ⁠Name: Halal Uddin
+3.⁠ ⁠Name: Halal Uddin
 ID: 2021200010038
