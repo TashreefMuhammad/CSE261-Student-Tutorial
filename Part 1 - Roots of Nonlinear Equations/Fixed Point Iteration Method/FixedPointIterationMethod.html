@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solving an Equation Using the Fixed-Point Iteration Method</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        h2, h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: justify;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        .team-members {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .team-member {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Solving an Equation Using the Fixed-Point Iteration Method</h1>
+        
+        <div class="section">
+            <h2>Objective</h2>
+            <p>Implement the fixed-point iteration method to solve the equation 𝑥² − 3𝑥 + 2 = 0 using the fixed-point iteration method. This involves transforming the equation into a form suitable for iteration, selecting an initial guess, and iteratively applying the fixed-point formula to find an approximate solution within a specified tolerance. The aim is to understand and implement the method to achieve convergence to a root of the equation.</p>
+        </div>
+
+        <div class="section">
+            <h2>Main Text for Solving Math</h2>
+            <p><strong>Fixed-Point Iteration Method: Solving 𝑥² − 3𝑥 + 2 = 0</strong></p>
+            <p><strong>Objective</strong><br>Use the fixed-point iteration method to solve the equation 𝑥² − 3𝑥 + 2 = 0.</p>
+            
+            <h3>Steps</h3>
+            <p><strong>Transform the Equation:</strong><br>Rewrite the equation 𝑥² − 3𝑥 + 2 = 0 in the form 𝑥 = 𝑔(𝑥). One possible transformation is:</p>
+            <pre>𝑥 = 𝑔(𝑥) = (𝑥² + 2) / 3</pre>
+            
+            <p><strong>Define the Function 𝑔(𝑥):</strong><br>Use the transformation to define:</p>
+            <pre>𝑔(𝑥) = (𝑥² + 2) / 3</pre>
+            
+            <p><strong>Choose an Initial Guess:</strong><br>Select an initial guess, 𝑥₀ = 0.5.</p>
+            
+            <p><strong>Iterative Formula:</strong><br>Use the iterative formula to find successive approximations:</p>
+            <pre>𝑥ₙ₊₁ = 𝑔(𝑥ₙ)</pre>
+            
+            <p><strong>Check for Convergence:</strong><br>Continue the iteration until the difference |𝑥ₙ₊₁ − 𝑥ₙ| is smaller than a pre-specified tolerance 𝜖 (e.g., 𝜖 = 1×10⁻⁶), or until the maximum number of iterations is reached.</p>
+        </div>
+
+        <div class="section">
+            <h2>Team Members</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    Md. Mostafiz Ul Islam<br>
+                    ID: 2019100010001
+                </div>
+                <div class="team-member">
+                    Syed Shazeedul Islam<br>
+                    ID: 2022100010104
+                </div>
+                <div class="team-member">
+                    K.M. Fuad Hasan<br>
+                    ID: 2023000010085
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
