@@ -31,7 +31,7 @@ Use the iterative formula to find successive approximations:
 
 𝑥ₙ₊₁ = 𝑔(𝑥ₙ)
 
-**Check for Convergence:**  
+**Conclusion:**  
 Continue the iteration until the difference |𝑥ₙ₊₁ − 𝑥ₙ| is smaller than a pre-specified tolerance 𝜖 (e.g., 𝜖 = 1×10⁻⁶), or until the maximum number of iterations is reached.
 
 ---
