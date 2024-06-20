@@ -1,11 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newton Method</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Newton's Method: A Powerful Tool for Finding Roots</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
+    <div class="container">
+        <h1>Newton's Method: A Powerful Tool for Finding Roots</h1>
+        <p>The Newton Raphson Method, sometimes referred to as Newton's Method. A useful method for numerically solving equations is the Newton Method. The roots of real-valued functions are most frequently approximated using it. The term Newton Rapson Method comes from the development of the method by Joseph Raphson and Isaac Newton. Where typical algebraic approaches would not work, this iterative approach is especially helpful for solving nonlinear problems.</p>
+        <h2>History</h2>
+        <p>
+          Sir Issac Newton's unpublished book "Method of Fluxions" provided the first information on his late 17th-century development of Newton's Method. Separately, Joseph Raphson wrote "Analysis aequationum universalis," a work that improved and published a comparable method in 1690. A key idea in the solution of nonlinear equations in physics and engineering is the use of iterative approximation, which is what Newton's Method does. It has undergone substantial evolution over the ages, becoming more effective and applicable to complex systems as a result of developments in computer technology and numerical analysis. This has reinforced its position as a foundational numerical approach. 
+        </p>
+        <h2>What is Newton's Method?</h2>
+        <p>
+          Finding the roots of a function <code>f(x)</code>, or the values of x for which <code>f(x) = 0</code>, is done iteratively using Newton's Method. The procedure produces a series of progressively precise root estimations, starting with an initial guess, x<sub>0</sub>.
+        </p>
+
+        <h3>The Algorithm</h3>
+        <p>
+            The Newton-Raphson iteration formula, given a function f(x) and its derivative f'(x), is:
+        </p>
+        <pre><code>x<sub>n+1</sub> = x<sub>n</sub> - f(x<sub>n</sub>) / f'(x<sub>n</sub>)</code></pre>
+        <p>Here’s a step-by-step breakdown of the algorithm:</p>
+        <ol>
+            <li><strong>Initial Guess</strong>: Choose an initial guess <code>x<sub>0</sub></code>.</li>
+            <li><strong>Iteration</strong>: Apply the iteration formula to find the next approximation.</li>
+            <li><strong>Convergence Check</strong>: Repeat the process until the difference between successive approximations is smaller than a predetermined tolerance level, indicating convergence.</li>
+        </ol>
+
+        <h3>Example</h3>
+        <p>Consider the function <code>f(x) = x<sup>2</sup> - 2</code>. We aim to find the root of this function, which is <code>&#8730;2</code>.</p>
+        <ol>
+            <li><strong>Function and Derivative</strong>: <code>f(x) = x<sup>2</sup> - 2</code>, <code>f'(x) = 2x</code>.</li>
+            <li><strong>Initial Guess</strong>: Let's start with <code>x<sub>0</sub> = 1</code>.</li>
+        </ol>
+        <p>Applying the Newton-Raphson formula:</p>
+        <pre><code>x<sub>n+1</sub> = x<sub>n</sub> - (x<sub>n</sub><sup>2</sup> - 2) / (2x<sub>n</sub>)</code></pre>
+        <p>For the first iteration (<code>n=0</code>):</p>
+        <pre><code>x<sub>1</sub> = 1 - (1<sup>2</sup> - 2) / (2 * 1) = 1 - (-1/2) = 1.5</code></pre>
+        <p>For the second iteration (<code>n=1</code>):</p>
+        <pre><code>x<sub>2</sub> = 1.5 - (1.5<sup>2</sup> - 2) / (2 * 1.5) = 1.5 - 0.25 / 3 = 1.5 - 0.0833 ≈ 1.4167</code></pre>
+        <p>Continuing this process, we quickly converge to the root <code>&#8730;2 ≈ 1.4142</code>.</p>
+
+        <h2>Why Use Newton's Method?</h2>
+        <h3>Advantages</h3>
+        <ul>
+            <li>The convergence of the procedure to the root is among the quickest.</li>
+            <li>Its straightforward formula makes it simple to program.
+                It is applied to enhance a root discovered by alternative means.</li>
+            <li>To determine the root, just one guess is needed.</li>
+            <li>Since the method's derivation is more straightforward, it is simpler to comprehend its behavior, including when it should converge and diverge.</li>
+        </ul>
+
+        <h3>Disadvantages</h3>
+        <ul>
+            <li>The choice of x<sub>0</sub> significantly affects convergence. A poor initial guess can lead to slow convergence or divergence.</li>
+            <li>The method requires the derivative f'(x), which might not be easy to obtain for all functions.</li>
+            <li>If f(x) has multiple roots, the method converges to the one closest to the initial guess, which may not always be the desired root.</li>
+        </ul>
+
+        <h2>Practical Implementation</h2>
+        <p>Newton's Method Implementation in C++:</p>
+        <pre>
+            <code>
+#include&lt;bits/stdc++.h&gt;
+#define EPSILON 0.001
+using namespace std;
+
+double func(double x)
+{
+	return x*x*x - x*x + 2;
+}
+
+double derivFunc(double x)
+{
+	return 3*x*x - 2*x;
+}
+
+void newtonRaphson(double x)
+{
+	double h = func(x) / derivFunc(x);
+	while (abs(h) >= EPSILON)
+	{
+		h = func(x)/derivFunc(x);
+		x = x - h;
+	}
+
+	cout << "The value of the root is : " << x;
+}
+
+int main()
+{
+	double x = -20;
+	newtonRaphson(x);
+	return 0;
+}
+
+            </code>
+        </pre>
+
+      <h2>Conclusion</h2>
+      <p>Newton's Method, which combines simplicity and speed, is a potent method for locating equation roots. For many numerical problems, its fast convergence gives it the best option; nevertheless, the function's nature and the first guess must be carefully considered. Whether you're doing physics, engineering, or arithmetic issues, knowing Newton's Method may greatly improve your problem-solving abilities.
+
+        If you're keen to learn more, try varying the functions, first estimates, and tolerance levels to observe directly how they affect the method's accuracy and convergence.</p>
+    </div>
+    <div class="team-members">
+        <div class="team-member">
+            <img src="./photos/samiul.png" alt="Samiul Islam">
+            <p class="team-member-name">Samiul Islam</p>
+            <p class="team-member-id">ID: 2022100010063</p>
+        </div>
+        <div class="team-member">
+            <img src="./photos/joy.png" alt="Md Mehedi Hasan Joy">
+            <p class="team-member-name">Md Mehedi Hasan Joy</p>
+            <p class="team-member-id">ID: 2019000010057</p>
+        </div>
+        <div class="team-member">
+            <img src="./photos/jony.png" alt="Md Masudul Islam Jony">
+            <p class="team-member-name">Md Masudul Islam Jony</p>
+            <p class="team-member-id">ID: 2018100011002</p>
+        </div>
+    </div>
 </body>
 </html>
