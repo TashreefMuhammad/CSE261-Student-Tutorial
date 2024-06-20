@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSE261 - Bisection Method</title>
 
+    <style>
+        .text-purple {
+            color: #6f42c1;
+        }
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        .shadow-lg {
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+        }
+    </style>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -24,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="../../index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../../Part 1 - Roots of Nonlinear Equations/Bisection Method/BisectionMethod.html">Bisection</a>
@@ -70,18 +82,839 @@
             Let us consider a continuous function “f” which is defined on the closed interval [a, b], is given with f(a) and f(b) of
             different signs. Then by intermediate theorem, there exists a point x belong to (a, b) for which f(x) = 0.
         </p>
+        <p class="text-center border border-white rounded-3 shadow">
+            <img src="file.png" alt="Bisection Methods" class="img-fluid" title="Bisection method question" />
+        </p>
+        <table class="table table-bordered shadow">
+            <tbody>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p><strong>Algorithm for the bisection method:</strong> </p>
+                        <ul>
+                            <li> For any continuous function f(x), find a closed interval [a, b] such that f(a).f(b) &lt; 0.
+                            </li>
+                            <li> Find the midpoint of a, b. Let x<sub>1</sub> = (a + b)/2 </li>
+                            <li> If f(x<sub>1</sub>) = 0, then x<sub>1</sub> is the root. </li>
+                            <li> If f(x<sub>1</sub>) ≠ 0, then
+                                <ul>
+                                    <li> f(a).f(x<sub>1</sub>) &lt; 0, root of f(x) lies in [a, x<sub>1</sub>], continue the
+                                        above steps for interval [a, x<sub>1</sub>]. </li>
+                                    <li> f(x<sub>1</sub>).f(b) &lt; 0, root of f(x) lies in [x<sub>1</sub>, b], continue the
+                                        above steps for interval [x<sub>1</sub>, b]. </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p> Continue the process repeatedly until we find a point x<sub>o</sub> in [a, b] for which
+                            f(x<sub>o</sub>) = 0. </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>
+            Bisection Method Questions with Solution
+        </h3>
+        <p>
+            Follow the above algorithm of the bisection method to solve the following questions.
+        </p>
 
-        <h5>Algorithm</h5>
-        <p class="fs-5">The bisection method is a simple and robust method for finding the roots of a polynomial equation. The algorithm is as follows:</p>
-        <ol class="fs-5">
-            <li>Choose two points a and b such that f(a) and f(b) have opposite signs.</li>
-            <li>Calculate the midpoint c = (a + b) / 2.</li>
-            <li>Calculate f(c).</li>
-            <li>If f(c) = 0, then c is the root of the equation.</li>
-            <li>Otherwise, if f(a) and f(c) have opposite signs, then the root lies between a and c. Set b = c.</li>
-            <li>Otherwise, if f(b) and f(c) have opposite signs, then the root lies between b and c. Set a = c.</li>
-            <li>Repeat steps 2-6 until the root is found within the desired tolerance.</li>
-        </ol>
+        <h5 class="my-3">
+            Question 1:
+        </h5>
+        
+        <p>Find the root of the following polynomial function using the bisection method: x<sup>3</sup> - 4x - 9.</p>
+
+        <h5 class="my-3">
+            Solution:
+        </h5>
+        <div class="ms-5">
+            <p>
+                Let, f(x) = x<sup>3</sup> - 4x - 9
+            </p>
+            <p>
+                f(2) = 8 - 8 - 9 = - 9
+            </p>            
+            <p>
+                f(3) = 27 - 12 - 9 = 6
+            </p>            
+            <p>
+                ∴ the root lies in [2, 3]
+            </p>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-md-3">
+                <p>
+                    First iteration:
+                </p>
+                <div class="ms-5">
+                    <p>
+                        x<sub>1</sub> = (2 + 3)/2 = 2.5
+                    </p>
+                    <p>
+                        Now, f(x<sub>1</sub>) = (2.5)<sup>3</sup> - 4(2.5) - 9 = -3.375
+                    </p>            
+                    <p>
+                        Then, f(x<sub>1</sub>).f(3) < 0 
+                        </p>            
+                    <p>
+                        Thus, the root lies in [2.5, 3]
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    Second iteration:
+                </p>
+                <div class="ms-5">
+                    <p>
+                        x<sub>2</sub> = (2.5 + 3)/2 = 2.75
+                    </p>
+                    <p>
+                        Now, f(x<sub>2</sub>) = (2.5)<sup>3</sup> - 4(2.75) - 9 = 0.7969
+                    </p>            
+                    <p>
+                        Then, f(x<sub>1</sub>).f(x<sub>2</sub>) < 0 
+                        </p>            
+                    <p>
+                        Thus, the root lies in [2.5, 2.75]
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    Third iteration:
+                </p>
+                <div class="ms-5">
+                    <p>
+                        x<sub>3</sub> = (2.5 + 2.75)/2 = 2.625
+                    </p>
+                    <p>
+                        Now, f(x<sub>3</sub>) = (2.625)<sup>3</sup> - 4(2.625) - 9 = -1.4121
+                    </p>            
+                    <p>
+                        Then, f(x<sub>2</sub>).f(x<sub>3</sub>) < 0 
+                    </p>            
+                    <p>
+                        Thus, the root lies in [2.75, 2.625]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <p>
+            Hence, we can make the following iteration table:
+        </p>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> Iterations (n) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> a </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> b </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> x<sub>n</sub> </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(a) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(b) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(x<sub>n</sub>) </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 1 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -8 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 6 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -3.375 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 2 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.75 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -3.375 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 6 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.7969 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.75 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -3.375 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.7969 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -1.4121 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 4 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.75 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.6875 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -1.4121 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.7969 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.3391 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.6875 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.75 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.71875 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.3391 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.7969 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.2209 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 6 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.6875 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.71875 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.703125 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.3391 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.2209 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.0615 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 7 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.71875 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.703125 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.7109 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.2209 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.0615 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.0787 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 8 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.703125 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.7109 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.707 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.0615 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.0787 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.00849 </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p> ∴ the root of the function is 2.707. </p>
+
+        <h5 class="my-3">
+            Question 2:
+        </h5>
+        
+        <p>Find the root of the following polynomial function using the bisection method: x<sup>3</sup> - 4.</p>
+        
+        <h5 class="my-3">
+            Solution:
+        </h5>
+        <div class="ms-5">
+            <p>
+                Let, f(x) = x<sup>3</sup> - 4
+            </p>
+            <p>
+                f(0) = 0 - 4 = -4
+            </p>
+            <p>
+                f(1) = 1 - 4 = -3
+            </p>
+            <p>
+                f(2) = 8 - 4 = 4
+            </p>
+            <p>
+                ∴ the root lies in [1, 4]
+            </p>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-md-3">
+                <p>
+                    First iteration:
+                </p>
+                <div class="ms-5">
+                    <p>
+                        x<sub>1</sub> = (1 + 2)/2 = 1.5
+                    </p>
+                    <p>
+                        Now, f(x<sub>1</sub>) = (1.5)<sup>3</sup> - 4 = -0.625
+                    </p>
+                    <p>
+                        Then, f(x<sub>1</sub>).f(2) < 0 
+                    </p>
+                    <p>
+                        Thus, the root lies in [1.5, 2]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <p>
+            Hence, we can make the following iteration table:
+        </p>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> Iterations (n) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> a </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> b </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> x<sub>n</sub> </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(a) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(b) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(x<sub>n</sub>) </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 1 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 4 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.625 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 2 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.75 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 4 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.3593 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.75 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.3593 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.2910 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 4 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.5625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.2910 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.1853 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.5625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.625 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.59375 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.1853 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.2910 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.04818 </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p> ∴ the root of the function is 1.59375. </p>
+
+
+        <h5 class="my-3">
+            Question 3:
+        </h5>
+        
+        <p>Find the root of the following polynomial function using the bisection method: x<sup>3</sup> - 3x - 5.</p>
+        
+        <h5 class="my-3">
+            Solution:
+        </h5>
+        <div class="ms-5">
+            <p>
+                Let, f(x) = x<sup>3</sup> - 3x - 5
+            </p>
+            <p>
+                f(2) = 8 - 6 - 5 = -3
+            </p>
+            <p>
+                f(3) = 27 - 9 - 5 = 13
+            </p>
+            <p>
+                ∴ the root lies in [2, 3]
+            </p>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-md-3">
+                <p>
+                    First iteration:
+                </p>
+                <div class="ms-5">
+                    <p>
+                        x<sub>1</sub> = (2 + 3)/2 = 2.5
+                    </p>
+                    <p>
+                        Now, f(x<sub>1</sub>) = (2.5)<sup>3</sup> - 7.5 - 5 = 3.125
+                    </p>
+                    <p>
+                        Then, f(2).f(x<sub>1</sub>) < 0 </p>
+                            <p>
+                                Thus, the root lies in [2, 2.5]
+                            </p>
+                </div>
+            </div>
+        </div>
+        <p>
+            Hence, we can make the following iteration table:
+        </p>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> Iterations (n) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> a </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> b </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> x<sub>n</sub> </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(a) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(b) </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> f(x<sub>n</sub>) </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 1 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 13 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 3.125 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 2 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.25 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 3.125 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.359 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 3 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.25 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.375 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.359 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 3.125 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.2714 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 4 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.25 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.375 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.3125 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.359 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 1.2714 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.4289 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 5 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.25 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.3125 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2812 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.359 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.4289 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.0281 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 6 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.25 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2812 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2656 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.359 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.0281 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.1676 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 7 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2656 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2812 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2734 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.1676 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.0281 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.0704 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 8 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2734 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2812 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2773 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.0704 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.0281 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.0216 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #f1edff;">
+                        <p> 9 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2773 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2812 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 2.2792 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> -0.0216 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.0281 </p>
+                    </td>
+                    <td style="background-color: #f1edff;">
+                        <p> 0.0022 </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p> ∴ the root of the function is 2.2792 (approx). </p>
+
+        <div class="mt-5">
+            <h3 class="text-center fw-bold">Team Members</h3>
+            <div class="row mt-4">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="text-center fw-semibold text-purple bg-white p-4 rounded-lg shadow-lg">
+                        <p>Md. Mostafiz Ul Islam</p>
+                        <p>ID: 2019100010001</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="text-center fw-semibold text-purple bg-white p-4 rounded-lg shadow-lg">
+                        <p>Syed Shazeedul Islam</p>
+                        <p>ID: 2022100010104</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="text-center fw-semibold text-purple bg-white p-4 rounded-lg shadow-lg">
+                        <p>K.M. Fuad Hasan</p>
+                        <p>ID: 2023000010085</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
